@@ -1,0 +1,26 @@
+[
+  {
+    "ParameterKey": "ProjectName",
+    "ParameterValue": "UDGRAM"
+  },
+  {
+    "ParameterKey": "serversMinSize",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "serversMaxSize",
+    "ParameterValue": "4"
+  },
+  {
+    "ParameterKey": "WebAppServersDesiredCapacity",
+    "ParameterValue": "4"
+  },
+  {
+    "ParameterKey": "S3CodeRepo",
+    "ParameterValue": "s3://udacity-s3/devops/udacity.zip"
+  },
+  {
+    "ParameterKey": "KeyPairName",
+    "ParameterValue": "udacity"
+  }
+]
