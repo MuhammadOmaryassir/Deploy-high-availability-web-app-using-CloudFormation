@@ -1,8 +1,5 @@
 Description: >
   Server, security, and load-balance configurations.
-  Author: Muhammad Omar (Omaroovee)
-  Email: Omaroovee@gmailcom
-
 Parameters:
   ProjectName:
     Description: Project name prefixed to resource names.
@@ -11,7 +8,7 @@ Parameters:
   serversMinSize:
     Description: Minimum number of web application servers
     Type: String
-    Default: '1'
+    Default: '2'
 
   serversMaxSize:
     Description: Maximum number of web application servers
@@ -19,19 +16,19 @@ Parameters:
     Default: '4'
 
   WebAppServersDesiredCapacity:
-    Description: Desired number of web application servers
+    Description: Desired initial number of web application servers
     Type: String
     Default: '4'
 
   S3CodeRepo:
     Description: Full S3 path and file name of zipped file
     Type: String
-    Default: 's3://udacity-s3/devops/udacity.zip'
+    Default: 's3://udacity-demo-1/udacity.zip'
 
   KeyPairName:
     Description: Name of key-pair (PEM) file.
     Type: String
-    Default: 'udacity'
+    Default: 'ud'
 
 
 Resources:
@@ -50,7 +47,7 @@ Resources:
   SecurityGroupWebServer:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Security group for web servers
+      GroupDescription: Security group for web server
       VpcId:
         Fn::ImportValue: !Sub "${ProjectName}-VPCID"
       SecurityGroupIngress:
@@ -101,7 +98,7 @@ Resources:
           apt-get -y install docker-ce docker-ce-cli containerd.io
           usermod -aG docker ubuntu
           docker run -dit --name ${ProjectName} -p 80:80 -v "$PWD"/html:/usr/local/apache2/htdocs/ httpd:latest
-      ImageId: ami-005bdb005fb00e791
+      ImageId: ami-046842448f9e74e7d
       IamInstanceProfile: !Ref ListBucketInstanceProfile
       SecurityGroups: 
       - Ref: SecurityGroupWebServer  
@@ -177,7 +174,7 @@ Resources:
   BastionPublicSubnet1:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-06f2f779464715dc5
+      ImageId: ami-046842448f9e74e7d
       InstanceType: t2.micro
       KeyName: !Ref KeyPairName
       SubnetId:
@@ -193,7 +190,7 @@ Resources:
   BastionPublicSubnet2:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-06f2f779464715dc5
+      ImageId: ami-046842448f9e74e7d
       InstanceType: t2.micro
       KeyName: !Ref KeyPairName
       SubnetId:

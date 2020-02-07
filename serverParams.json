@@ -17,10 +17,10 @@
   },
   {
     "ParameterKey": "S3CodeRepo",
-    "ParameterValue": "s3://udacity-s3/devops/udacity.zip"
+    "ParameterValue": "s3://udacity-demo-1/udacity.zip"
   },
   {
     "ParameterKey": "KeyPairName",
-    "ParameterValue": "udacity"
+    "ParameterValue": "ud"
   }
 ]
