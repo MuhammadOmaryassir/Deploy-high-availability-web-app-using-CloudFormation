@@ -51,5 +51,3 @@ Infrastructure-as-code (IAC) that automates the process of creating a secured an
 Udacity Cloud DevOps Nanodegree Program<br>
 Author : Muhammad Omar<br>
 Email : Omaroovee@gmail.com<br>
-website URL: https://duy2bkqudoywa.cloudfront.net
-
